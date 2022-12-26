@@ -18,4 +18,8 @@ class Category extends Entity
      * @var \App\CategoryClosure
      */
     protected $closure = 'App\Models\CategoryClosure';
+
+    public function posts(){
+        return $this->belongsToMany(Post::class,'post_categories','category_id','post_id');
+    }
 }

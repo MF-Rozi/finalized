@@ -22,8 +22,7 @@ class PostFactory extends Factory
         return [
             'title'=>$name,
             'content'=>fake()->text(1000),
-            'category_id'=> fake()->numberBetween(1,Category::count()),
-            'user_id'=> fake()->numberBetween(1,User::count())
+            'user_id'=> fake()->numberBetween(1,User::count()),
         ];
     }
     public function setUser(User $user){
@@ -31,7 +30,6 @@ class PostFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'title'=>$name,
             'content'=>fake()->text(1000),
-            'category_id'=> fake()->numberBetween(1,Category::count()),
             'user_id'=> $user->id,
         ]);
     }

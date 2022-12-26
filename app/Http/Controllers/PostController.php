@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Category;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -15,7 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('posts.index',compact('posts'));
     }
 
     /**
@@ -82,5 +85,17 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+    public function userPost(){
+        $user = User::find(1);
+        return view('posts.one-to-many',compact('user'));
+    }
+    public function categoriesPost(){
+        $categories = Category::all();
+        return view('posts.many-to-many',compact('categories'));
+    }
+    public function imagePost(){
+        $posts = Post::all();
+        return view('posts.one-to-one',compact('posts'));
     }
 }

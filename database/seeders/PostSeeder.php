@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Image;
 use App\Models\Post;
+use App\Models\PostCategory;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,8 +19,17 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
+        $categoryCount = Category::count();
         $user = User::find(1);
-        Post::factory(5000)->create();
-        Post::factory(1000)->setUser($user)->create();
+        Post::factory(100)->has(Image::factory(1))->create()->each(function ($post) use ($categoryCount){
+            $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
+        });
+        Post::factory(500)->has(Image::factory(1))->setUser($user)->create()->each(function ($post) use ($categoryCount){
+            $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
+        });
+        Post::factory(10)->has(Image::factory(1))->create()->each(function ($post) use ($categoryCount){
+            $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
+            $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
+        });
     }
 }
