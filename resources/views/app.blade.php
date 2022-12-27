@@ -31,9 +31,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            One To One (Post and Image)
-                            One To Many (User and Post)
-                            Many to Many (Post and Category)
+                            <a class="nav-link" href="{{ route('posts.one-to-one') }}">One To One (Post and Image)</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('posts.one-to-many') }}">One To Many (User and Post)</a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('posts.many-to-many') }}">Many to Many (Post and Category)</a>
+
                         </li>
 
                     </ul>

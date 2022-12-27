@@ -88,7 +88,8 @@ class PostController extends Controller
     }
     public function userPost(){
         $user = User::find(1);
-        return view('posts.one-to-many',compact('user'));
+        $posts = $user->posts;
+        return view('posts.one-to-many',compact('posts','user'));
     }
     public function categoriesPost(){
         $categories = Category::all();

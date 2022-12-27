@@ -15,11 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('posts.index'));
 });
-Route::resource('posts',PostController::class);
-Route::group(['prefix' => 'posts', 'as' => 'posts'.'.'],function(){
-    Route::get('/one-to-one','PostController@imagePost')->name('one-to-one');
-    Route::get('/one-to-many','PostController@userPost')->name('one-to-many');
-    Route::get('/many-to-many','PostController@categoriesPost')->name('many-to-many');
-});
+Route::get('/posts',[PostController::class,'index'])->name('posts.index');
+Route::get('/posts/ImagePost',[PostController::class,'imagePost'])->name('posts.one-to-one');
+Route::get('/posts/UserPost',[PostController::class,'userPost'])->name('posts.one-to-many');
+Route::get('/posts/CategoryPost',[PostController::class,'categoriesPost'])->name('posts.many-to-many');

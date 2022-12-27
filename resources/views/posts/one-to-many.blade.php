@@ -13,11 +13,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($user->posts as $post)
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->slug }}</td>
-                <td>{{ $post->content }}</td>
-                <td>{{ $user->name }}</td>
+                @foreach ($posts as $post)
+                <tr>
+                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->slug }}</td>
+                    <td>{{ $post->content }}</td>
+                    <td>{{ $user->name }}</td>
+                </tr>
                 @endforeach
             </tbody>
             <tfoot>

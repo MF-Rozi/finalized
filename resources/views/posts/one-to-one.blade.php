@@ -14,12 +14,16 @@
             </thead>
             <tbody>
                 @foreach ($posts as $post)
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->slug }}</td>
-                <td>{{ $post->content }}</td>
-                <td>
-                    <img src="{{ asset($post->image->src) }}" alt="{{ $post->title }} Image" height="100px" width="200px">
-                </td>
+                <tr>
+                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->slug }}</td>
+                    <td>{{ $post->content }}</td>
+                    <td>
+                        {{-- <img src="{{ asset($post->image->src) }}" alt="{{ $post->title }} Image" height="100px" width="200px"> --}}
+                        {{ $post->image }}
+                    </td>
+
+                </tr>
 
                 @endforeach
             </tbody>
