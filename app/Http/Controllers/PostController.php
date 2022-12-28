@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::limit(1000)->get();
+        $posts = Post::limit(2000)->get();
         return view('posts.index',compact('posts'));
     }
 
@@ -88,7 +88,7 @@ class PostController extends Controller
     }
     public function userPost(){
         $user = User::find(1);
-        $posts = $user->posts()->limit(1000)->get();
+        $posts = $user->posts()->limit(2000)->get();
         return view('posts.one-to-many',compact('posts','user'));
     }
     public function categoriesPost(){
@@ -96,7 +96,7 @@ class PostController extends Controller
         return view('posts.many-to-many',compact('categories'));
     }
     public function imagePost(){
-        $posts = Post::limit(1000)->get();
+        $posts = Post::limit(2000)->get();
         return view('posts.one-to-one',compact('posts'));
     }
 }

@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 @foreach ($categories as $category)
-                @foreach ($category->posts()->limit(125)->get() as $post)
+                @foreach ($category->posts()->limit(250)->get() as $post)
 
 
                 <tr>
