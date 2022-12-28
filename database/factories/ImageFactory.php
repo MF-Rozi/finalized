@@ -21,7 +21,7 @@ class ImageFactory extends Factory
         $postCount = Post::count();
         return [
             'src'=> '/assets/images/marvin-meyer-unsplash.jpg',
-            'post_id'=>fake()->unique()->numberBetween(1,$postCount)
+            'post_id'=>fake()->numberBetween(1,$postCount)
         ];
     }
 }
