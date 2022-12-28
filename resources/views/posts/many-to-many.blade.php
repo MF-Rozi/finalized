@@ -3,6 +3,7 @@
 @section('content')
 <div class="container bg-w p-4">
     <div class="table-responsive">
+        <h1>Many To Many (Post Category)</h1>
         <table id="dataTable" class="table table-striped table-bordered nowrap">
             <thead>
                 <tr>
@@ -14,7 +15,8 @@
             </thead>
             <tbody>
                 @foreach ($categories as $category)
-                @foreach ($category->posts as $post)
+                @foreach ($category->posts()->limit(fake()->numberBetween(61,65))->get() as $post)
+
                 <tr>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->slug }}</td>

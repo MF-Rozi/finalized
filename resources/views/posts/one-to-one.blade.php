@@ -3,6 +3,7 @@
 @section('content')
 <div class="container bg-w p-4">
     <div class="table-responsive">
+        <h1>One to One (Image Post)</h1>
         <table id="dataTable" class="table table-striped table-bordered nowrap">
             <thead>
                 <tr>
