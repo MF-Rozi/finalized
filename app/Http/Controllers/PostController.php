@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::limit(100)->get();
         return view('posts.index',compact('posts'));
     }
 
@@ -96,7 +96,7 @@ class PostController extends Controller
         return view('posts.many-to-many',compact('categories'));
     }
     public function imagePost(){
-        $posts = Post::all();
+        $posts = Post::limit(100)->get();
         return view('posts.one-to-one',compact('posts'));
     }
 }

@@ -14,7 +14,8 @@
             </thead>
             <tbody>
                 @foreach ($categories as $category)
-                @foreach ($category->posts as $post)
+                @foreach ($category->posts()->limit(fake()->numberBetween(12,13))->get() as $post)
+
                 <tr>
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->slug }}</td>

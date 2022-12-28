@@ -21,13 +21,13 @@ class PostSeeder extends Seeder
     {
         $categoryCount = Category::count();
         $user = User::find(1);
-        Post::factory(200)->has(Image::factory(1))->create()->each(function ($post) use ($categoryCount){
+        Post::factory(100)->has(Image::factory(1))->create()->each(function ($post) use ($categoryCount){
             $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
         });
-        Post::factory(500)->has(Image::factory(1))->setUser($user)->create()->each(function ($post) use ($categoryCount){
+        Post::factory(100)->has(Image::factory(1))->setUser($user)->create()->each(function ($post) use ($categoryCount){
             $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
         });
-        Post::factory(10)->has(Image::factory(1))->create()->each(function ($post) use ($categoryCount){
+        Post::factory(100)->has(Image::factory(1))->create()->each(function ($post) use ($categoryCount){
             $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
             $post->categories()->attach(fake()->numberBetween(1,$categoryCount));
         });
