@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 @foreach ($categories as $category)
-                @foreach ($category->posts()->limit(fake()->numberBetween(61,65))->get() as $post)
+                @foreach ($category->posts as $post)
 
                 <tr>
                     <td>{{ $post->title }}</td>
